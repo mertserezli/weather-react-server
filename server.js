@@ -7,6 +7,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+const PORT = process.env.PORT || 3000;
+
 const api = {
     key: process.env.REACT_APP_WEATHER_API_KEY,
     base: "https://api.openweathermap.org/data/2.5/weather"
@@ -23,4 +25,4 @@ app.get("/weather", async (req, res) => {
     res.json(data)
 });
 
-app.listen(80);
+app.listen(PORT);
