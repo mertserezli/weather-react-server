@@ -20,7 +20,7 @@ app.get("/weather", async (req, res) => {
     const { data } = await axios.get(
         api.base,
         { params: { q, units: "metric", APPID: api.key} }
-    );
+    ).catch(e => res.json({message: "city not found"}));
 
     res.json(data)
 });
